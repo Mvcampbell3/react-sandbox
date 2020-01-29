@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import API from './utils/API'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>This is the App component</h1>
+      <p>There are some very important things to realize when dealing with React</p>
+      <Landing></Landing>
     </div>
   );
 }
+
+class Landing extends Component {
+  state = {
+    ok: false
+  }
+
+  componentDidMount() {
+    console.log('componenet mounted');
+    API.testGet()
+      .then(results => console.log(results))
+      .catch(err => console.log(err)) 
+  }
+
+  render() {
+    return (
+      <h1>This is the Landing Component</h1>
+    );
+  }
+}
+
 
 export default App;

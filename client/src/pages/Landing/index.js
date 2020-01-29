@@ -6,7 +6,7 @@ import Circle from '../../components/Circle';
 
 const Landing = (props) => {
   return (
-    <div>
+    <div className="container">
       <div className='intro-box'>
         <h1>This is the Landing Compnent</h1>
         <p>This is a stateless function that is imported into app.js and rendered</p>
@@ -16,11 +16,11 @@ const Landing = (props) => {
       </div>
 
       <div className="switch-component-box">
-        <p>Here is an example of re-rendering only part of the page. We have a button which will flip-fop between two different componenets that we have loaded into Landing.js. The value that determines which compenent to load will come from App.js state, and be a prop we can access inside of Landing.js by passing it down into Landing.js from App.js.</p>
+        <p>Here is an example of re-rendering only part of the page. We have a button which will flip-fop between two different components that we have loaded into Landing.js. The value that determines which compenent to load will come from App.js state, and be a prop we can access inside of Landing.js by passing it down into Landing.js from App.js.</p>
         <p>This is the value of showBox: {props.showBox ? 'True' : 'False'}</p>
 
         <div className="input-group">
-          <label htmlFor="button">Switch between Box and Circle</label>
+          <p>Switch between Box and Circle</p>
 
           {/* 
             Since we are not using any events or parameters for this OnClick event
@@ -37,14 +37,17 @@ const Landing = (props) => {
 
             A lot of the problems I had learning React came from this
           */}
-          <button className="flopBtn" onClick={props.handleLandingChange}>Click!</button>
+          <div className="toggle-holder" onClick={props.handleLandingChange}>
+            {/* Condiditional styling using the ternary operator, more below */}
+            <div className={props.showBox ? 'toggle toggle-box' : 'toggle toggle-circle'}></div>
+          </div>
         </div>
 
         <div className="show-component">
           {/* This is called a ternary conditional operator, this will be used a lot in React  */}
           {props.showBox ? <Box /> : <Circle />}
           {/* 
-            If is basically an if statement with and else block:
+            If is basically an if statement with an else block:
               if (showBox) {
                 <Box />
               } else {
@@ -53,7 +56,11 @@ const Landing = (props) => {
             
             It is super useful, even outside of React applications
           */}
-          
+
+        </div>
+
+        <div className="explanation">
+          <p>This is what is known as conditional rendering</p>
         </div>
 
 

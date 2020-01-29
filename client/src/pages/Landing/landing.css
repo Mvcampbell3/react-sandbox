@@ -1,0 +1,46 @@
+.container{
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 1em;
+  padding: 1em;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.input-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-holder{
+  width: 44px;
+  height: 24px;
+  background-color: #111;
+  border-radius: 10px;
+  margin-left: 5px;
+}
+
+.toggle{
+  width: 20px;
+  height: 20px;
+  transition: transform .3s, background-color .3s;
+  border-radius: 10px;
+
+}
+
+.toggle-box{
+  transform: translate(1px, 2px);
+  background-color: red;
+}
+
+.toggle-circle{
+  transform: translate(23px, 2px);
+  background-color: green;
+}
+
+.show-component{
+  width: 100px;
+  margin: 0 auto;
+}

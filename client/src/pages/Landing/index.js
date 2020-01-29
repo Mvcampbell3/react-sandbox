@@ -1,5 +1,6 @@
 import React from 'react';
 import './landing.css'
+import propsSrc from '../../images/props.png'
 
 import Box from '../../components/Box';
 import Circle from '../../components/Circle';
@@ -9,7 +10,7 @@ const Landing = (props) => {
     <div className="container">
       <div className='intro-box'>
         <h1>This is the Landing Compnent</h1>
-        <p>This is a stateless function that is imported into app.js and rendered</p>
+        <p>This is a <span className='highlight'>stateless function</span> that is imported into app.js and rendered</p>
         <p>React will only render what is different between what it knows the 'virtual' DOM is now and what the 'virtual' DOM will be</p>
         <p>This makes React work relatively efficently at displaying things to a page</p>
         <p>But if you re-render all of your components everytime you do something with the page, it loses some of its purpose.</p>
@@ -17,6 +18,13 @@ const Landing = (props) => {
 
       <div className="switch-component-box">
         <p>Here is an example of re-rendering only part of the page. We have a button which will flip-fop between two different components that we have loaded into Landing.js. The value that determines which compenent to load will come from App.js state, and be a prop we can access inside of Landing.js by passing it down into Landing.js from App.js.</p>
+
+        <hr/>
+
+        <img className='props-img' src={propsSrc} alt="props diagram" />
+
+        <hr/>
+
         <p>This is the value of showBox: {props.showBox ? 'True' : 'False'}</p>
 
         <div className="input-group">
@@ -60,9 +68,9 @@ const Landing = (props) => {
         </div>
 
         <div className="explanation">
-          <p>This is what is known as conditional rendering</p>
+          <p>This is what is known as <span className='highlight'>conditional rendering</span></p>
 
-          <button onClick={props.landingToForm}>On to Form Control</button>
+          <button className='page-btn' onClick={props.landingToForm}>On to Form Control</button>
         </div>
 
 

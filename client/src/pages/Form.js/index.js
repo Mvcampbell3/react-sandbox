@@ -16,7 +16,7 @@ const Form = (props) => {
         <div className="input-form">
           <button type="submit" onClick={(e) => props.handleFormSubmit(e)}>Submit</button>
         </div>
-        <button onClick={props.landingToForm}>Back to Landing Page</button>
+        <button className='page-btn' onClick={props.landingToForm}>Back to Landing Page</button>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
 import './landing.css'
 
-import Box from '../Box';
-import Circle from '../Circle'
+import Box from '../../components/Box';
+import Circle from '../../components/Circle';
 
 const Landing = (props) => {
   return (

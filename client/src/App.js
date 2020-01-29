@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 //Component Loading
-import Landing from './components/Landing';
-
+import Landing from './pages/Landing';
 /*
   Traditionally, App.js was a class like we have here. It can carry it's own state, which is pretty helpful. The other type of 'Component' that React can use is a stateless function. It works very differently, cannot have it's own state, and until recently, was not used for complex components. 
   

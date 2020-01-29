@@ -3,6 +3,7 @@ import './App.css';
 
 //Component Loading
 import Landing from './pages/Landing';
+import Form from './pages/Form.js';
 /*
   Traditionally, App.js was a class like we have here. It can carry it's own state, which is pretty helpful. The other type of 'Component' that React can use is a stateless function. It works very differently, cannot have it's own state, and until recently, was not used for complex components. 
   
@@ -11,10 +12,16 @@ import Landing from './pages/Landing';
   We will start off without using React Hooks, but we will bring them in later to see how to use them
 */
 
+import API from './utils/API';
+
 
 class App extends Component {
   state = {
-    showBox: true
+    showBox: true,
+    showLanding: true,
+    showForm: false,
+    email: '',
+    password: ''
   }
 
   componentDidMount() {
@@ -27,15 +34,67 @@ class App extends Component {
 
   //  Very important that this is an arrow function () => {}
   handleLandingChange = () => {
-    console.log('switching showBox')
     this.setState({ showBox: !this.state.showBox })
+  }
+
+  handleShowLanding = () => {
+    this.setState({ showLanding: !this.state.showLanding })
+  }
+
+  handleShowForm = () => {
+    this.setState({ showForm: !this.state.showForm })
+  }
+
+  handleStateBoolean = (property) => {
+    this.setState(prevState => {
+      prevState[property] = !prevState[property];
+      return prevState;
+    })
+  }
+
+  handleInputChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (this.state.email && this.state.password) {
+      const sendObj = {
+        email: this.state.email,
+        password: this.state.password
+      }
+      API.postLogin(sendObj)
+        .then(result => console.log(result))
+        .catch(err => console.log(err))
+    } else {
+      alert('You must fill out the inputs')
+    }
+  }
+
+  landingToForm = () => {
+    this.handleStateBoolean('showLanding');
+    this.handleStateBoolean('showForm');
   }
 
   render() {
     return (
       <div className="App">
-
-        <Landing showBox={this.state.showBox} handleLandingChange={this.handleLandingChange}></Landing>
+        {this.state.showLanding ?
+          <Landing
+            showBox={this.state.showBox}
+            handleLandingChange={this.handleLandingChange}
+            landingToForm={this.landingToForm}
+          />
+          : null}
+        {this.state.showForm ?
+          <Form
+            email={this.state.email}
+            password={this.state.password}
+            handleInputChange={this.handleInputChange}
+            handleFormSubmit={this.handleFormSubmit}
+            landingToForm={this.landingToForm}
+          />
+          : null}
 
       </div >
     );

@@ -20,7 +20,7 @@ const Landing = (props) => {
         <p>This is the value of showBox: {props.showBox ? 'True' : 'False'}</p>
 
         <div className="input-group">
-          <p>Switch between Box and Circle</p>
+          <p>Switch between Box and Circle Components</p>
 
           {/* 
             Since we are not using any events or parameters for this OnClick event
@@ -61,6 +61,8 @@ const Landing = (props) => {
 
         <div className="explanation">
           <p>This is what is known as conditional rendering</p>
+
+          <button onClick={props.landingToForm}>On to Form Control</button>
         </div>
 
 

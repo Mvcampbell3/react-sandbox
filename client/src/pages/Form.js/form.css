@@ -1,0 +1,11 @@
+.input-form{
+  margin-bottom: 1em;
+}
+
+label{
+  margin-right: 10px;
+}
+
+.input-form input{
+  padding: 5px 2px;
+}

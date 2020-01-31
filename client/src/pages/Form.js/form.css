@@ -9,3 +9,8 @@ label{
 .input-form input{
   padding: 5px 2px;
 }
+
+.output-value{
+  color: blue;
+  font-style: italic;
+}
